@@ -1,0 +1,112 @@
+{% extends "Tbase.html" %}
+{% block title %}Edugrow - Edit Teachers{% endblock %}
+
+
+{% block head %}
+{{ super() }}
+<!-- CSS -->
+<style type="text/css">
+
+    .container {
+    background: #F6F4F4;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+th {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  text-align: left;
+  padding: 30px 0px 40px 0px;
+}
+
+tr {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.btn {
+  border: 1px solid #947667;
+  background: #947667;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 15px;
+  color: white;
+}
+
+#title {
+    background: #947667;
+    border-radius: 30px;
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="display-4" id="title">Manage Teachers</h1>
+<div style="padding-bottom: 5px; color: #947667; font-family: helvetica, sans-serif; font-weight: bold ;font-size:20px; margin-bottom: 5px; text-align:center;">
+    {% if count == 0 %}
+    <p>There are no teachers.</p>
+    {% elif count == 1 %}
+    <p>There is 1 teacher.</p>
+    {% else %}
+    <p>There are {{ count }} teachers.</p>
+    {% endif %}
+</div>
+<center><a href="/createTeacher" class="btn btn-primary">New Teacher</a></center>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th> Gender</th>
+            <th> Email</th>
+            <th> Date Joined</th>
+            <th> Address</th>
+
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for teacher in teacher_list %}
+        <tr>
+            <td>{{ teacher.get_teacher_id() }}</td>
+            <td>{{ teacher.get_first_name() }}</td>
+            <td>{{ teacher.get_last_name() }}</td>
+            <td>{{ teacher.get_gender() }}</td>
+            <td>{{ teacher.get_email() }}</td>
+            <td>{{ teacher.get_date_joined() }}</td>
+            <td>{{ teacher.get_address() }}</td>
+            <td><a href="/updateTeacher/{{teacher.get_teacher_id()}}" class="btn btn-warning">Update</a></td>
+            <td>
+                <form action="{{url_for('delete_teacher', id=teacher.get_teacher_id())}}" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger"
+                           onclick="return confirm('Are you sure you want to delete {{teacher.get_first_name()}}?');">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div><br><br>
+{% endblock %}

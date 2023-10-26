@@ -1,0 +1,33 @@
+Sadly, we still couldn't integarte the login fucntion with the rest. Which mean that there is two files to look at.
+
+Credentails to login into the student account
+
+email: andrewtate@gmail.com
+password: password
+
+Credentails to login into the teachers account
+
+admin number: 225067E
+email: testing@gmail.com
+password: password
+
+
+
+Jovan (account management)
+
+1. when applied for the subject it will be retrieved in the teachers account where they can update delete
+
+Matthew (account management)
+
+1. Teachers are able to mark students work
+
+Rachael (report generation)
+
+1. The completed progress report id should match with completed progress report when clicked view all.
+
+Shalom (account management)
+
+1. Nil, everything should be working. But I still couldn't change the encryted password in account management.
+
+Angie (FAQ part)
+1. Nil

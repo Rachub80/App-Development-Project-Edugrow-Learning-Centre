@@ -1,0 +1,125 @@
+{% extends "Sbase.html" %}
+{% block title %}Edugrow - Attempt Quiz{% endblock %}
+
+{% block head %}
+{{ super() }}
+<!-- CSS -->
+<style type="text/css">
+.container {
+    background: #F6F4F4;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    height: 800px;
+}
+th {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  text-align: left;
+  padding: 30px 0px 40px 0px;
+}
+
+tr {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.btn {
+  border: 1px solid #D9D9D8;
+  background: #D9D9D8;
+  color: #947667;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+.btn {
+  border: 1px solid #D9D9D8;
+  background: #D9D9D8;
+  color: #947667;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+#title2 {
+    background: #947667;
+    border-radius: 30px;
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    margin-top: 20px;
+}
+#text2 {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size
+</style>
+{% endblock %}
+
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<h1 class="display-4" id="title2">Quiz</h1>
+<div>
+<form action="/submitQuiz" method="POST" class="container">
+{% for question in qn_list %}
+<div id="text2">
+<h5>Question 1:  {{ question.get_q1() }}</h5>
+        <div class="form-group">
+    {{ render_field(form.a1, class="form-control") }}
+</div><br>
+
+
+<h5>Question 2:  {{ question.get_q2() }}</h5>
+        <div class="form-group">
+    {{ render_field(form.a2, class="form-control") }}
+</div><br>
+
+
+<h5>Question 3: {{ question.get_q3() }}</h5>
+        <div class="form-group">
+    {{ render_field(form.a3, class="form-control") }}
+</div><br>
+
+
+    <h5>Question 4: {{ question.get_q4() }}</h5>
+        <div class="form-group">
+    {{ render_field(form.a4, class="form-control") }}
+</div><br>
+
+
+    <h5>Question 5: {{ question.get_q5() }}</h5>
+        <div class="form-group">
+    {{ render_field(form.a5, class="form-control") }}
+</div><br>
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+<input type="submit" value="Submit" class="btn btn-danger" style="float:right;" onclick="return confirm('Are you sure you want to submit?);"></div>
+</form>
+
+
+
+</div><br><br>
+{% endblock %}

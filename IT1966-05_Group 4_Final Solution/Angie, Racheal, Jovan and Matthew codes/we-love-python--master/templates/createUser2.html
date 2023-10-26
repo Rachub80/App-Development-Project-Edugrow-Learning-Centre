@@ -1,0 +1,99 @@
+{% extends "Tbase.html" %}
+{% block title %}Edugrow - Create User{% endblock %}
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<h1 class="display-4" id="questions">Create User</h1>
+<form method="POST" action=""><div class="container" id="text2">
+    <div class="form-group">
+        {{ render_field(form.first_name, class="form-control") }}
+    </div><br>
+    <div class="form-group">
+        {{ render_field(form.last_name, class="form-control") }}
+    </div><br>
+    <div class="form-group">
+        {{ render_field(form.gender, class="form-control") }}
+    </div><br>
+    <div class="form-group">
+        {{ render_field(form.email, class="form-control") }}
+    </div><br>
+    <div class="form-group">
+        {{ render_field(form.date_joined, class="form-control") }}
+     </div><br>
+    <div class="form-group">
+        {{ render_field(form.address, class="form-control") }}
+        </div><br>
+    <div class="form-group">
+        {{ render_field(form.level, id="dropdown", class="form-control", onchange="showText()") }}
+    </div><br>
+<!--    <div class="form-group form-check">-->
+<!--        {{ render_field(form.subject, id="subject", type="checkbox", class="form-check", onchange="showText()") }}-->
+<!--    </div>-->
+    <div class="form-group">
+        <h5>Choose your Subject(s)</h5>
+        {%for s in subjects%}
+        <input type="checkbox" name="mycheckbox" value="{{s}}" id="{{s}}">
+        <label for="{{s}}">{{s}}</label>
+        <br>
+        {%endfor%}
+    </div><br>
+
+    <input type="submit" value="Submit" id="ok" style="float: right;" class="btn btn-primary"/></div>
+</form><br><br>
+<style>
+    .container {
+    background: #F6F4F4;
+    border-radius: 20px;
+    width: 100%;
+    height: 800px;
+    padding: 10px;
+}
+
+#questions {
+    background: #947667;
+    border-radius: 30px;
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#ok {
+  border: 1px solid #D9D9D8;
+  background: #D9D9D8;
+  color: #947667;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+#text2 {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+</style>
+<script>
+<!--    function showText() {-->
+<!--  var dropdown = document.getElementById("dropdown");-->
+<!--  var checkbox = document.getElementById("checkbox");-->
+<!--  var math = document.getElementById("math");-->
+<!--  var allocated_day&time = document.getElementById("allocated_day&time");-->
+
+<!--  if (dropdown.value === "P1" && math.checked) {-->
+<!--    p2_math.style.display = "block";-->
+<!--  }-->
+<!--  else if (dropdown.value === "option2") {-->
+<!--      result.innerHTML = "Option 2 selected";-->
+<!--  }-->
+<!--  else {-->
+<!--    allocated_day&time.innerHTML = "Option is selected"-->
+<!--  }-->
+<!--}-->
+</script>
+{% endblock %}

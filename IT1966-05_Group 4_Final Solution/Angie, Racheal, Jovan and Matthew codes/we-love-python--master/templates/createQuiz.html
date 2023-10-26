@@ -1,0 +1,124 @@
+{% extends "Tbase.html" %}
+{% block title %}Edugrow - Create Quiz {% endblock %}
+
+
+{% block head %}
+{{ super() }}
+<!-- CSS -->
+<style>
+
+.container {
+    background: #F6F4F4;
+    border-radius: 20px;
+    width: 1200px;;
+    height: 1200px;
+    padding: 20px;
+}
+th {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  text-align: left;
+  padding: 30px 0px 40px 0px;
+}
+
+tr {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.btn {
+  border: 1px solid #947667;
+  background: #947667;
+  padding: 14px 28px;
+  font-size: 15px;
+  border-radius: 15px;
+  color: white;
+}
+
+
+#questions {
+    background: #947667;
+    border-radius: 30px;
+    color: white;
+    font-family: helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    margin-top: 20px;
+}
+#text2 {
+  font-family: Verdana, sans-serif;
+  color: #947667;
+  font-size: 15px;
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<h1 class="display-4" id="questions">New Quiz</h1><br>
+<form method="POST" action="/createQuiz"><div id="text2">
+    <div class="container">
+        <div class="form-group">
+            {{ render_field(form.subject, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.title, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.description, class="form-control") }}
+        </div><br>
+
+        <div class="form-group">
+            {{ render_field(form.q1, class="form-control") }}
+        </div><br>
+
+
+        <div class="form-group">
+            {{ render_field(form.ms1, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.q2, class="form-control") }}
+        </div><br>
+
+        <div class="form-group">
+            {{ render_field(form.ms2, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.q3, class="form-control") }}
+        </div><br>
+
+        <div class="form-group">
+            {{ render_field(form.ms3, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.q4, class="form-control") }}
+        </div><br>
+
+        <div class="form-group">
+            {{ render_field(form.ms4, class="form-control") }}
+        </div><br>
+        <div class="form-group">
+            {{ render_field(form.q5, class="form-control") }}
+        </div><br>
+
+        <div class="form-group">
+            {{ render_field(form.ms5, class="form-control") }}
+        </div>
+        <div><br><br>
+            <input type="submit" value="Save" class="btn btn-primary" style="float:right;"/>
+        </div>
+    </div></div>
+</form><br><br>
+
+{% endblock %}
